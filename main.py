@@ -333,9 +333,4 @@ class App:
 
 
 if __name__ == '__main__':
-    App()def snake_intersect(self, u, v, w, h):
-        is_intersect = False
-        conditions = [u + w > self.x, self.x + self.w > u, v + h > self.y, self.y + self.h > v ]
-        if all(conditions):
-            is_intersect = True
-        return is_intersect
+    App()
