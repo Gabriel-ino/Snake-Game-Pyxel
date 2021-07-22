@@ -59,7 +59,8 @@ class Apple:
 
     def intersect(self, u, v, w, h) -> bool:
         is_intersect = False
-        if u + w > self.x and self.x + self.w > u and v + h > self.y and self.y + self.h > v:
+        conditions = [u + w > self.x and self.x + self.w > u and v + h > self.y and self.y + self.h > v]
+        if all(conditions):
             is_intersect = True
 
         return is_intersect
@@ -262,12 +263,8 @@ class App:
             good_position = True
 
             for s in self.snake:
-                if (
-                        new_x + 8 > s.x and
-                        s.x + s.w > new_x and
-                        new_y + 8 > s.y and
-                        s.y + s.h > new_y
-                ):
+                conditions = [new_x + 8 > s.x, s.x + s.w > new_x, new_y + 8 > s.y, s.y + s.h > new_y]
+                if all(conditions):
                     good_position = False
                     break
 
@@ -334,3 +331,4 @@ class App:
 
 if __name__ == '__main__':
     App()
+
